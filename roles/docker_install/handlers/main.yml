@@ -1,0 +1,6 @@
+---
+
+- name: restarting docker
+  service:
+    name: docker
+    state: restarted

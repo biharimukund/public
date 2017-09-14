@@ -1,0 +1,6 @@
+---
+
+- name: installing bind-utils
+  yum:
+    name: bind-utils
+    state: present

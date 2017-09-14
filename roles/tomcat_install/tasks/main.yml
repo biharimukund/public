@@ -1,0 +1,30 @@
+---
+
+- name: checkig if java is installed or not
+  shell: java -version
+  register: java_check
+
+- debug: msg={{java_check.rc}}
+ 
+- name: installing tomcat
+  yum: 
+    name: tomcat
+    state: present
+  when: java_check.rc == 0
+
+- name: installing admin packages
+  yum:
+    name: "{{ item }}"
+    state: installed 
+  with_items:
+    - tomcat-webapps
+    - tomcat-admin-webapps
+  notify: restarting tomcat
+  when: java_check.rc == 0
+
+- name: editing tomcat.conf file
+  lineinfile:
+    path: "{{ tomcat_conf_path }}"
+    line: "{{ java_opts }}"
+  notify: restarting tomcat
+

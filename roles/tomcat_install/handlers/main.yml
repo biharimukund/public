@@ -1,0 +1,6 @@
+---
+
+- name: restarting tomcat
+  service:
+    name: tomcat
+    state: restarted
