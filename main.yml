@@ -5,4 +5,5 @@
 #    - bind_utils
 #    - java_install
 #    - httpd_install
-    - tomcat_install
+#    - tomcat_install
+    - dzdo_root

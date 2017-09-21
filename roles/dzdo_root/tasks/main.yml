@@ -1,0 +1,6 @@
+---
+- name: setting dzdo as root in bash_profile
+  blockinfile:
+    path: "/home/{{ login_id }}/.bash_profile"
+    block: |
+      dzdo su -
