@@ -3,4 +3,4 @@
 - hosts:
     - lab
   roles:
-    - java_upgrade
+    - gocd_agent_install
