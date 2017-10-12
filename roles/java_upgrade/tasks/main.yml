@@ -1,0 +1,18 @@
+---
+
+- name: checking the current java version installed
+  yum:
+    list: java
+  register: java_version_check
+
+- name: uninstalling current java version
+  yum:
+    name: java
+    state: absent
+  when: java_version_check.results != ""
+
+- name: installing latest java version
+  yum:
+    name: java
+    state: latest
+  
