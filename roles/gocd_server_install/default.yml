@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+
+  roles:
+    - gocd_server_install
