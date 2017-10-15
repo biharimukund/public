@@ -54,6 +54,12 @@
     state: installed
   when: check_ufw| failed
 
+- name: changing IPv6 settings for UFW
+  replace:
+    path: /etc/default/ufw
+    regexp: 'IPV6=yes'
+    replace: 'IPV6=no'
+  
 - name: starting UFW
   service:
     name: ufw
