@@ -23,7 +23,7 @@ platforms:
         - yum install epel-release -y
         - yum makecache
         - yum -y install ansible libselinux-python git lvm2
-
+        - yum -y install net-tools
 suites:
   - name: default
 
