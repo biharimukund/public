@@ -28,3 +28,12 @@
     regexp: '127.0.0.1'
     replace: '192.168.56.101'
   notify: restart go-agent
+
+- name: enabling go-agent on go-server
+  template:
+    src: autoregister.properties
+    dest: /var/lib/go-agent/config/autoregister.properties
+    owner: go
+    group: go
+    mode: 0644
+  notify: restart go-agent 
