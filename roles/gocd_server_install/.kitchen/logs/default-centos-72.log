@@ -1,197 +1,37 @@
-I, [2017-10-17T10:57:07.152770 #61561]  INFO -- default-centos-72: -----> Cleaning up any prior instances of <default-centos-72>
-I, [2017-10-17T10:57:07.153754 #61561]  INFO -- default-centos-72: -----> Destroying <default-centos-72>...
-I, [2017-10-17T10:57:07.504510 #61561]  INFO -- default-centos-72: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
-I, [2017-10-17T10:57:07.504703 #61561]  INFO -- default-centos-72: root                59693               59675               0                   10:52               ?                   00:00:00            /usr/sbin/init
-I, [2017-10-17T10:57:07.504764 #61561]  INFO -- default-centos-72: root                59730               59693               0                   10:53               ?                   00:00:00            /usr/lib/systemd/systemd-journald
-I, [2017-10-17T10:57:07.504803 #61561]  INFO -- default-centos-72: root                59746               59693               0                   10:53               ?                   00:00:00            /usr/sbin/lvmetad -f
-I, [2017-10-17T10:57:07.504843 #61561]  INFO -- default-centos-72: root                59748               59693               0                   10:53               ?                   00:00:00            /usr/lib/systemd/systemd-udevd
-I, [2017-10-17T10:57:07.504877 #61561]  INFO -- default-centos-72: root                60362               59693               0                   10:53               ?                   00:00:00            /usr/sbin/dmeventd -f
-I, [2017-10-17T10:57:07.504910 #61561]  INFO -- default-centos-72: root                60484               59693               0                   10:53               ?                   00:00:00            /usr/lib/systemd/systemd-logind
-I, [2017-10-17T10:57:07.504965 #61561]  INFO -- default-centos-72: dbus                60488               59693               0                   10:53               ?                   00:00:00            /bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
-I, [2017-10-17T10:57:07.505000 #61561]  INFO -- default-centos-72: root                60652               59693               0                   10:53               tty1                00:00:00            /sbin/agetty --noclear tty1 linux
-I, [2017-10-17T10:57:07.505084 #61561]  INFO -- default-centos-72: root                60754               59693               0                   10:53               ?                   00:00:00            /usr/sbin/sshd -D
-I, [2017-10-17T10:57:08.452586 #61561]  INFO -- default-centos-72: be579ebba57b41738a46bb3531c9ed0e32bda65c32c84048e82e4a7d86a94f7a
-I, [2017-10-17T10:57:08.611602 #61561]  INFO -- default-centos-72: be579ebba57b41738a46bb3531c9ed0e32bda65c32c84048e82e4a7d86a94f7a
-I, [2017-10-17T10:57:08.630146 #61561]  INFO -- default-centos-72: Finished destroying <default-centos-72> (0m1.47s).
-I, [2017-10-17T10:57:08.634668 #61561]  INFO -- default-centos-72: -----> Testing <default-centos-72>
-I, [2017-10-17T10:57:08.634835 #61561]  INFO -- default-centos-72: -----> Creating <default-centos-72>...
-I, [2017-10-17T10:57:08.693602 #61561]  INFO -- default-centos-72: Sending build context to Docker daemon 37.89 kB
-I, [2017-10-17T10:57:08.787602 #61561]  INFO -- default-centos-72: Step 1/20 : FROM centos:centos7
-I, [2017-10-17T10:57:08.787710 #61561]  INFO -- default-centos-72:  ---> 328edcd84f1b
-I, [2017-10-17T10:57:08.787754 #61561]  INFO -- default-centos-72: Step 2/20 : ENV container docker
-I, [2017-10-17T10:57:08.787786 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.787814 #61561]  INFO -- default-centos-72:  ---> dfcc921cd7d2
-I, [2017-10-17T10:57:08.787887 #61561]  INFO -- default-centos-72: Step 3/20 : RUN yum clean all
-I, [2017-10-17T10:57:08.787918 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.787946 #61561]  INFO -- default-centos-72:  ---> be6386d4cd42
-I, [2017-10-17T10:57:08.789406 #61561]  INFO -- default-centos-72: Step 4/20 : RUN yum install -y sudo openssh-server openssh-clients which curl
-I, [2017-10-17T10:57:08.790013 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790062 #61561]  INFO -- default-centos-72:  ---> 2520d8ec6b5f
-I, [2017-10-17T10:57:08.790093 #61561]  INFO -- default-centos-72: Step 5/20 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
-I, [2017-10-17T10:57:08.790121 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790156 #61561]  INFO -- default-centos-72:  ---> 47bcf0a6a762
-I, [2017-10-17T10:57:08.790186 #61561]  INFO -- default-centos-72: Step 6/20 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
-I, [2017-10-17T10:57:08.790214 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790248 #61561]  INFO -- default-centos-72:  ---> c3e41134efff
-I, [2017-10-17T10:57:08.790302 #61561]  INFO -- default-centos-72: Step 7/20 : RUN if ! getent passwd kitchen; then                 useradd -d /home/kitchen -m -s /bin/bash -p '*' kitchen;               fi
-I, [2017-10-17T10:57:08.790333 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790388 #61561]  INFO -- default-centos-72:  ---> 7d0fefa964cd
-I, [2017-10-17T10:57:08.790424 #61561]  INFO -- default-centos-72: Step 8/20 : RUN echo "kitchen ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-I, [2017-10-17T10:57:08.790468 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790501 #61561]  INFO -- default-centos-72:  ---> 0f599e709bc3
-I, [2017-10-17T10:57:08.790529 #61561]  INFO -- default-centos-72: Step 9/20 : RUN echo "Defaults !requiretty" >> /etc/sudoers
-I, [2017-10-17T10:57:08.790563 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790591 #61561]  INFO -- default-centos-72:  ---> 956d5262c02b
-I, [2017-10-17T10:57:08.790643 #61561]  INFO -- default-centos-72: Step 10/20 : RUN mkdir -p /home/kitchen/.ssh
-I, [2017-10-17T10:57:08.790672 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790699 #61561]  INFO -- default-centos-72:  ---> 71081a13db76
-I, [2017-10-17T10:57:08.790733 #61561]  INFO -- default-centos-72: Step 11/20 : RUN chown -R kitchen /home/kitchen/.ssh
-I, [2017-10-17T10:57:08.790761 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790800 #61561]  INFO -- default-centos-72:  ---> 552b950ae0ac
-I, [2017-10-17T10:57:08.790828 #61561]  INFO -- default-centos-72: Step 12/20 : RUN chmod 0700 /home/kitchen/.ssh
-I, [2017-10-17T10:57:08.790855 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.790925 #61561]  INFO -- default-centos-72:  ---> b171d0320a23
-I, [2017-10-17T10:57:08.790956 #61561]  INFO -- default-centos-72: Step 13/20 : RUN touch /home/kitchen/.ssh/authorized_keys
-I, [2017-10-17T10:57:08.790990 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.791018 #61561]  INFO -- default-centos-72:  ---> 6a7b60b6900f
-I, [2017-10-17T10:57:08.791046 #61561]  INFO -- default-centos-72: Step 14/20 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
-I, [2017-10-17T10:57:08.792070 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.792121 #61561]  INFO -- default-centos-72:  ---> a69f3808930a
-I, [2017-10-17T10:57:08.792152 #61561]  INFO -- default-centos-72: Step 15/20 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
-I, [2017-10-17T10:57:08.792181 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.792209 #61561]  INFO -- default-centos-72:  ---> 53340aab9426
-I, [2017-10-17T10:57:08.792237 #61561]  INFO -- default-centos-72: Step 16/20 : RUN curl -L https://www.opscode.com/chef/install.sh | bash
-I, [2017-10-17T10:57:08.802933 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.803025 #61561]  INFO -- default-centos-72:  ---> de30b1882fcd
-I, [2017-10-17T10:57:08.803066 #61561]  INFO -- default-centos-72: Step 17/20 : RUN yum install epel-release -y
-I, [2017-10-17T10:57:08.803097 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.803138 #61561]  INFO -- default-centos-72:  ---> 59b852b619b2
-I, [2017-10-17T10:57:08.803198 #61561]  INFO -- default-centos-72: Step 18/20 : RUN yum makecache
-I, [2017-10-17T10:57:08.803235 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.803264 #61561]  INFO -- default-centos-72:  ---> 3af15b3de20c
-I, [2017-10-17T10:57:08.803309 #61561]  INFO -- default-centos-72: Step 19/20 : RUN yum -y install ansible libselinux-python git lvm2
-I, [2017-10-17T10:57:08.803338 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.803374 #61561]  INFO -- default-centos-72:  ---> c9909a24ae52
-I, [2017-10-17T10:57:08.803404 #61561]  INFO -- default-centos-72: Step 20/20 : RUN echo ssh-rsa\ AAAAB3NzaC1yc2EAAAADAQABAAABAQDAOl1JJGW4fMQFquVTgME7awMo7lsVRt8L8NzR053jWsS1JaCbeFK6v\+XBJOkJChLEvgqJ7zdKDG\+MYJ3Y/7gbhY/8h1fT/SuUwilRUOVa84p\+ge1hGKZQKWJM\+UpSy5wypdyzpnEkgMurP3Mxw6/YfsWSZrlFeD6Ty\+GzF1xEyU470gR/Yw0Lz8Tf16NGMb05p3E9HzHLHBkcF5PPy2Guf47FUSt5sUx67urtbghQQWv2j08O/USYTg1t0fx/dcxmWyUVft0knkA0RvsnKwfLv0oB7Im7BxKDrWhhFI9ft/OIP8Yfh4CdudhcIpNZYjCpmnJd17POsMkLK95qCk19\ kitchen_docker_key >> /home/kitchen/.ssh/authorized_keys
-I, [2017-10-17T10:57:08.803433 #61561]  INFO -- default-centos-72:  ---> Using cache
-I, [2017-10-17T10:57:08.803486 #61561]  INFO -- default-centos-72:  ---> 2f54f5be312f
-I, [2017-10-17T10:57:08.803523 #61561]  INFO -- default-centos-72: Successfully built 2f54f5be312f
-I, [2017-10-17T10:57:11.752587 #61561]  INFO -- default-centos-72: 96e2576caa452a7d8a51b93394685932886fa184cb14b761a89b0ea989351c2b
-I, [2017-10-17T10:57:13.599587 #61561]  INFO -- default-centos-72: 0.0.0.0:32854
-I, [2017-10-17T10:57:13.623644 #61561]  INFO -- default-centos-72: Waiting for SSH service on localhost:32854, retrying in 3 seconds
-I, [2017-10-17T10:57:16.630660 #61561]  INFO -- default-centos-72: Waiting for SSH service on localhost:32854, retrying in 3 seconds
-I, [2017-10-17T10:57:22.560075 #61561]  INFO -- default-centos-72: [SSH] Established
-I, [2017-10-17T10:57:22.561644 #61561]  INFO -- default-centos-72: Finished creating <default-centos-72> (0m13.93s).
-I, [2017-10-17T10:57:22.561807 #61561]  INFO -- default-centos-72: -----> Converging <default-centos-72>...
-I, [2017-10-17T10:57:22.562807 #61561]  INFO -- default-centos-72: Preparing files for transfer
-I, [2017-10-17T10:57:22.562911 #61561]  INFO -- default-centos-72: Preparing playbook
-I, [2017-10-17T10:57:22.563214 #61561]  INFO -- default-centos-72: Preparing inventory
-I, [2017-10-17T10:57:22.563321 #61561]  INFO -- default-centos-72: Preparing modules
-I, [2017-10-17T10:57:22.563540 #61561]  INFO -- default-centos-72: nothing to do for modules
-I, [2017-10-17T10:57:22.563611 #61561]  INFO -- default-centos-72: Preparing roles
-I, [2017-10-17T10:57:22.582158 #61561]  INFO -- default-centos-72: Preparing ansible.cfg file
-I, [2017-10-17T10:57:22.582354 #61561]  INFO -- default-centos-72: Empty ansible.cfg generated
-I, [2017-10-17T10:57:22.582545 #61561]  INFO -- default-centos-72: Preparing group_vars
-I, [2017-10-17T10:57:22.582702 #61561]  INFO -- default-centos-72: nothing to do for group_vars
-I, [2017-10-17T10:57:22.582756 #61561]  INFO -- default-centos-72: Preparing additional_copy_path
-I, [2017-10-17T10:57:22.582881 #61561]  INFO -- default-centos-72: Preparing host_vars
-I, [2017-10-17T10:57:22.583008 #61561]  INFO -- default-centos-72: nothing to do for host_vars
-I, [2017-10-17T10:57:22.583082 #61561]  INFO -- default-centos-72: Preparing hosts file
-I, [2017-10-17T10:57:22.583213 #61561]  INFO -- default-centos-72: Preparing spec
-I, [2017-10-17T10:57:22.583352 #61561]  INFO -- default-centos-72: nothing to do for spec
-I, [2017-10-17T10:57:22.583408 #61561]  INFO -- default-centos-72: Preparing library plugins
-I, [2017-10-17T10:57:22.583620 #61561]  INFO -- default-centos-72: nothing to do for library plugins
-I, [2017-10-17T10:57:22.583686 #61561]  INFO -- default-centos-72: Preparing callback plugins
-I, [2017-10-17T10:57:22.583942 #61561]  INFO -- default-centos-72: nothing to do for callback plugins
-I, [2017-10-17T10:57:22.584014 #61561]  INFO -- default-centos-72: Preparing filter_plugins
-I, [2017-10-17T10:57:22.584182 #61561]  INFO -- default-centos-72: nothing to do for filter_plugins
-I, [2017-10-17T10:57:22.584236 #61561]  INFO -- default-centos-72: Preparing lookup_plugins
-I, [2017-10-17T10:57:22.584432 #61561]  INFO -- default-centos-72: nothing to do for lookup_plugins
-I, [2017-10-17T10:57:22.584605 #61561]  INFO -- default-centos-72: Preparing additional_ssh_private_keys
-I, [2017-10-17T10:57:22.584710 #61561]  INFO -- default-centos-72: nothing to do for additional_ssh_private_keys
-I, [2017-10-17T10:57:22.584762 #61561]  INFO -- default-centos-72: Finished Preparing files for transfer
-I, [2017-10-17T10:57:22.585222 #61561]  INFO -- default-centos-72: Installing ansible, will try to determine platform os
-I, [2017-10-17T10:57:25.443081 #61561]  INFO -- default-centos-72: Transferring files to <default-centos-72>
-I, [2017-10-17T10:57:47.045026 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T10:57:47.045157 #61561]  INFO -- default-centos-72: PLAY [localhost] ***************************************************************
-I, [2017-10-17T10:57:48.077840 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T10:57:48.077994 #61561]  INFO -- default-centos-72: TASK [Gathering Facts] *********************************************************
-I, [2017-10-17T10:58:03.122836 #61561]  INFO -- default-centos-72: [0;32mok: [localhost][0m
-I, [2017-10-17T10:58:03.196826 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T10:58:03.197004 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : verifying the java installation] *******************
-I, [2017-10-17T10:58:28.182852 #61561]  INFO -- default-centos-72: [0;32mok: [localhost][0m
-I, [2017-10-17T10:58:28.289821 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T10:58:28.289936 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : installing java as it was not found] ***************
-I, [2017-10-17T11:00:24.809003 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:00:24.870919 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:00:24.871029 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : creating YUM repository] ***************************
-I, [2017-10-17T11:00:27.337920 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:00:27.411921 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:00:27.412046 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : installing go-server] ******************************
-I, [2017-10-17T11:01:05.208048 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:01:05.298027 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:05.298178 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : checking if firewalld service is available] ********
-I, [2017-10-17T11:01:06.853945 #61561]  INFO -- default-centos-72: [0;31mfatal: [localhost]: FAILED! => {"changed": true, "cmd": ["which", "firewalld"], "delta": "0:00:00.042076", "end": "2017-10-17 15:01:06.749233", "failed": true, "rc": 1, "start": "2017-10-17 15:01:06.707157", "stderr": "which: no firewalld in (/sbin:/bin:/usr/sbin:/usr/bin)", "stderr_lines": ["which: no firewalld in (/sbin:/bin:/usr/sbin:/usr/bin)"], "stdout": "", "stdout_lines": []}[0m
-I, [2017-10-17T11:01:06.854124 #61561]  INFO -- default-centos-72: [0;36m...ignoring[0m
-I, [2017-10-17T11:01:06.940957 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:06.941079 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : installing firewalld as it was not found] **********
-I, [2017-10-17T11:01:21.545951 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:01:21.612958 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:21.613074 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : enabling traffic for go-server ports through firewall] ***
-I, [2017-10-17T11:01:24.865976 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost] => (item=8153)[0m
-I, [2017-10-17T11:01:26.171962 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost] => (item=8154)[0m
-I, [2017-10-17T11:01:26.279972 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:26.280104 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : check if UFW is installed] *************************
-I, [2017-10-17T11:01:27.268950 #61561]  INFO -- default-centos-72: [0;31mfatal: [localhost]: FAILED! => {"changed": true, "cmd": ["which", "ufw"], "delta": "0:00:00.040757", "end": "2017-10-17 15:01:27.159808", "failed": true, "rc": 1, "start": "2017-10-17 15:01:27.119051", "stderr": "which: no ufw in (/sbin:/bin:/usr/sbin:/usr/bin)", "stderr_lines": ["which: no ufw in (/sbin:/bin:/usr/sbin:/usr/bin)"], "stdout": "", "stdout_lines": []}[0m
-I, [2017-10-17T11:01:27.269077 #61561]  INFO -- default-centos-72: [0;36m...ignoring[0m
-I, [2017-10-17T11:01:27.376947 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:27.377075 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : installing UFW] ************************************
-I, [2017-10-17T11:01:33.307571 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:01:33.374915 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:33.375037 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : changing IPv6 settings for UFW] ********************
-I, [2017-10-17T11:01:34.978920 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:01:35.049056 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:35.049176 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : starting UFW] **************************************
-I, [2017-10-17T11:01:37.052924 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:01:37.112815 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:37.112921 #61561]  INFO -- default-centos-72: TASK [gocd_server_install : enabling go traffic through UFW] *******************
-I, [2017-10-17T11:01:42.010990 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost] => (item=8153)[0m
-I, [2017-10-17T11:01:45.809145 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost] => (item=8154)[0m
-I, [2017-10-17T11:01:45.809278 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:01:45.809315 #61561]  INFO -- default-centos-72: RUNNING HANDLER [gocd_server_install : start go-server] ************************
-I, [2017-10-17T11:02:17.397092 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:02:17.397218 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:02:17.397256 #61561]  INFO -- default-centos-72: RUNNING HANDLER [gocd_server_install : restart firewalld] **********************
-I, [2017-10-17T11:02:22.596827 #61561]  INFO -- default-centos-72: [0;33mchanged: [localhost][0m
-I, [2017-10-17T11:02:22.619825 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:02:22.619942 #61561]  INFO -- default-centos-72: PLAY RECAP *********************************************************************
-I, [2017-10-17T11:02:22.619982 #61561]  INFO -- default-centos-72: [0;33mlocalhost[0m                  : [0;32mok=15  [0m [0;33mchanged=13  [0m unreachable=0    failed=0   
-I, [2017-10-17T11:02:22.620014 #61561]  INFO -- default-centos-72: 
-I, [2017-10-17T11:02:23.025236 #61561]  INFO -- default-centos-72: Finished converging <default-centos-72> (5m0.46s).
-I, [2017-10-17T11:02:23.025426 #61561]  INFO -- default-centos-72: -----> Setting up <default-centos-72>...
-I, [2017-10-17T11:02:23.028226 #61561]  INFO -- default-centos-72: Finished setting up <default-centos-72> (0m0.00s).
-I, [2017-10-17T11:02:23.028386 #61561]  INFO -- default-centos-72: -----> Verifying <default-centos-72>...
-I, [2017-10-17T11:02:23.029327 #61561]  INFO -- default-centos-72: Preparing files for transfer
-I, [2017-10-17T11:02:23.029821 #61561]  INFO -- default-centos-72: Transferring files to <default-centos-72>
-I, [2017-10-17T11:02:23.032668 #61561]  INFO -- default-centos-72: Finished verifying <default-centos-72> (0m0.00s).
-I, [2017-10-17T11:02:23.033515 #61561]  INFO -- default-centos-72: -----> Destroying <default-centos-72>...
-I, [2017-10-17T11:02:23.258752 #61561]  INFO -- default-centos-72: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
-I, [2017-10-17T11:02:23.258887 #61561]  INFO -- default-centos-72: root                61785               61767               0                   10:57               ?                   00:00:00            /usr/sbin/init
-I, [2017-10-17T11:02:23.258933 #61561]  INFO -- default-centos-72: root                61822               61785               0                   10:57               ?                   00:00:00            /usr/lib/systemd/systemd-journald
-I, [2017-10-17T11:02:23.258978 #61561]  INFO -- default-centos-72: root                61839               61785               0                   10:57               ?                   00:00:00            /usr/lib/systemd/systemd-udevd
-I, [2017-10-17T11:02:23.259020 #61561]  INFO -- default-centos-72: root                61840               61785               0                   10:57               ?                   00:00:00            /usr/sbin/lvmetad -f
-I, [2017-10-17T11:02:23.259059 #61561]  INFO -- default-centos-72: root                62254               61785               0                   10:57               ?                   00:00:00            /usr/sbin/dmeventd -f
-I, [2017-10-17T11:02:23.259132 #61561]  INFO -- default-centos-72: root                62362               61785               0                   10:57               ?                   00:00:00            /usr/lib/systemd/systemd-logind
-I, [2017-10-17T11:02:23.259171 #61561]  INFO -- default-centos-72: dbus                62363               61785               0                   10:57               ?                   00:00:00            /bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
-I, [2017-10-17T11:02:23.259209 #61561]  INFO -- default-centos-72: root                62415               61785               0                   10:57               tty1                00:00:00            /sbin/agetty --noclear tty1 linux
-I, [2017-10-17T11:02:23.259245 #61561]  INFO -- default-centos-72: root                62500               61785               0                   10:57               ?                   00:00:00            /usr/sbin/sshd -D
-I, [2017-10-17T11:02:23.259280 #61561]  INFO -- default-centos-72: root                62547               62500               0                   10:57               ?                   00:00:00            sshd: kitchen [priv]
-I, [2017-10-17T11:02:23.259337 #61561]  INFO -- default-centos-72: mustafa             62839               62547               0                   10:57               ?                   00:00:00            sshd: kitchen@pts/0
-I, [2017-10-17T11:02:23.259375 #61561]  INFO -- default-centos-72: root                63057               62500               0                   10:57               ?                   00:00:00            sshd: kitchen [priv]
-I, [2017-10-17T11:02:23.259410 #61561]  INFO -- default-centos-72: mustafa             63213               63057               0                   10:57               ?                   00:00:00            sshd: kitchen@pts/0
-I, [2017-10-17T11:02:23.259468 #61561]  INFO -- default-centos-72: systemd+            64410               61785               45                  11:01               ?                   00:00:16            java -server -Djava.security.egd=file:/dev/./urandom -Xms512m -Xmx1024m -XX:MaxMetaspaceSize=256m -Duser.language=en -Djruby.rack.request.size.threshold.bytes=30000000 -Duser.country=US -Dcruise.config.dir=/etc/go -Dcruise.config.file=/etc/go/cruise-config.xml -Dcruise.server.port=8153 -Dcruise.server.ssl.port=8154 -jar /usr/share/go-server/go.jar
-I, [2017-10-17T11:02:23.259509 #61561]  INFO -- default-centos-72: root                64484               61785               10                  11:02               ?                   00:00:00            /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid
-I, [2017-10-17T11:02:24.980945 #61561]  INFO -- default-centos-72: 96e2576caa452a7d8a51b93394685932886fa184cb14b761a89b0ea989351c2b
-I, [2017-10-17T11:02:25.147913 #61561]  INFO -- default-centos-72: 96e2576caa452a7d8a51b93394685932886fa184cb14b761a89b0ea989351c2b
-I, [2017-10-17T11:02:25.164741 #61561]  INFO -- default-centos-72: Finished destroying <default-centos-72> (0m2.13s).
-I, [2017-10-17T11:02:25.168606 #61561]  INFO -- default-centos-72: Finished testing <default-centos-72> (5m18.02s).
+I, [2017-10-18T07:50:11.694551 #50551]  INFO -- default-centos-72: -----> Verifying <default-centos-72>...
+I, [2017-10-18T07:50:11.695461 #50551]  INFO -- default-centos-72: Preparing files for transfer
+I, [2017-10-18T07:50:13.685940 #50551]  INFO -- default-centos-72: -----> Busser installation detected (busser)
+I, [2017-10-18T07:50:13.686130 #50551]  INFO -- default-centos-72: Installing Busser plugins: busser-serverspec
+I, [2017-10-18T07:50:14.994611 #50551]  INFO -- default-centos-72: Plugin serverspec already installed
+I, [2017-10-18T07:50:15.831354 #50551]  INFO -- default-centos-72: Removing /tmp/verifier/suites/serverspec
+I, [2017-10-18T07:50:15.840674 #50551]  INFO -- default-centos-72: Transferring files to <default-centos-72>
+I, [2017-10-18T07:50:17.655425 #50551]  INFO -- default-centos-72: -----> Running serverspec test suite
+I, [2017-10-18T07:50:17.803178 #50551]  INFO -- default-centos-72: /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.7.0/lib:/tmp/verifier/gems/gems/rspec-core-3.7.0/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+I, [2017-10-18T07:50:18.450962 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.451092 #50551]  INFO -- default-centos-72: Command "systemctl status go-server"
+I, [2017-10-18T07:50:18.451126 #50551]  INFO -- default-centos-72:   stdout
+I, [2017-10-18T07:50:18.533298 #50551]  INFO -- default-centos-72: [32m    should contain "active"[0m
+I, [2017-10-18T07:50:18.533420 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.533455 #50551]  INFO -- default-centos-72: Service "firewalld"
+I, [2017-10-18T07:50:18.558932 #50551]  INFO -- default-centos-72: [32m  should be running[0m
+I, [2017-10-18T07:50:18.559058 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.559229 #50551]  INFO -- default-centos-72: Command "systemctl status ufw"
+I, [2017-10-18T07:50:18.559266 #50551]  INFO -- default-centos-72:   stdout
+I, [2017-10-18T07:50:18.577637 #50551]  INFO -- default-centos-72: [32m    should contain "active"[0m
+I, [2017-10-18T07:50:18.577791 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.577827 #50551]  INFO -- default-centos-72: File "/etc/default/ufw"
+I, [2017-10-18T07:50:18.577873 #50551]  INFO -- default-centos-72:   content
+I, [2017-10-18T07:50:18.591634 #50551]  INFO -- default-centos-72: [32m    should match /IPV6=no/[0m
+I, [2017-10-18T07:50:18.591764 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.591797 #50551]  INFO -- default-centos-72: Command "netstat -an | grep 8153"
+I, [2017-10-18T07:50:18.591826 #50551]  INFO -- default-centos-72:   stdout
+I, [2017-10-18T07:50:18.604878 #50551]  INFO -- default-centos-72: [32m    should contain "LISTEN"[0m
+I, [2017-10-18T07:50:18.604999 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.605034 #50551]  INFO -- default-centos-72: Command "netstat -an | grep 8154"
+I, [2017-10-18T07:50:18.605171 #50551]  INFO -- default-centos-72:   stdout
+I, [2017-10-18T07:50:18.620071 #50551]  INFO -- default-centos-72: [32m    should contain "LISTEN"[0m
+I, [2017-10-18T07:50:18.620195 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.620296 #50551]  INFO -- default-centos-72: Finished in 0.16561 seconds (files took 0.58014 seconds to load)
+I, [2017-10-18T07:50:18.620339 #50551]  INFO -- default-centos-72: [32m6 examples, 0 failures[0m
+I, [2017-10-18T07:50:18.620369 #50551]  INFO -- default-centos-72: 
+I, [2017-10-18T07:50:18.638928 #50551]  INFO -- default-centos-72: Finished verifying <default-centos-72> (0m6.94s).

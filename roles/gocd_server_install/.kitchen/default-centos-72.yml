@@ -1,0 +1,9 @@
+---
+username: kitchen
+ssh_key: "/root/mukund/public/roles/gocd_server_install/.kitchen/docker_id_rsa"
+image_id: 2f54f5be312f
+container_id: e4c911702300b055048876a1f0ee4677f441de14387cd65ad0d7b39e9aa89e35
+hostname: localhost
+port: 32859
+last_action: verify
+last_error: 
